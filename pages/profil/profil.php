@@ -12,9 +12,9 @@
 <h3>VISI MISI SEKOLAH</h3>
 <strong>Visi Sekolah</strong>
 <p>"Mewujudkan Sekolah Luar Biasa Marganingsih sebagai sarana pendidikan yang berkwalitas bagi penyandang kebutuhan khusus".</p>
-<div class="list-unstyled">
+<div>
 	<strong>Misi Sekolah</strong>
-	<ul>
+	<ul class="list-unstyled">
 		<li>Mewujudkan tenaga guru yang berkwalitas.</li>
 		<li>Mewujudkan pelayanan pendidikan yang baik.</li>
 		<li>Mewujudkan sarana dan prasarana yang memadai.</li>

@@ -126,6 +126,9 @@ session_start(); ?>
                     <li>
                     <a class="show" href="index.php?pg=organisasi"><i class="fa fa-users"></i> Organisasi</a>
                     </li>
+                    <li>
+                    <a class="show" href="index.php?pg=laporan"><i class="fa fa-users"></i> Laporan</a>
+                    </li>
 <!--                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Organisasi<b class="caret"></b></a>
                       <ul class="dropdown-menu">
