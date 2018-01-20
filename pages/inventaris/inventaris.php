@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php
 include_once("koneksi.php");
-$q=mysqli_query($conn, "SELECT id_ruang, id_kategori, id_inventaris, nama_inventaris, nama_kategori, nama_ruang, asal, nomor_inventaris,tgl_pembelian, dibeli_oleh, nilai_pembelian, merk, nilai_saat_ini, kondisi, ket
+$q=mysqli_query($conn, "SELECT id_ruang, id_kategori, id_inventaris, nama_inventaris, nama_kategori, nama_ruang, asal, tgl_pembelian, dibeli_oleh, nilai_pembelian, merk, nilai_saat_ini, kondisi, ket
 FROM tb_inventaris
 INNER JOIN tb_kategori USING (id_kategori)
 INNER JOIN tb_ruang USING (id_ruang) group by nama_inventaris");

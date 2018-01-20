@@ -1,7 +1,9 @@
 <h4>
 <?php 
 	include 'koneksi.php';
-	$query = "select * from tb_inventaris where nama_inventaris like '$_GET[id]'";
+	$id = $_GET['id'];
+	$i = urldecode($id);
+	$query = "select * from tb_inventaris where nama_inventaris like '$i'";
 	$q = mysqli_query($conn, $query); 
 	$no = 1;
 	?>

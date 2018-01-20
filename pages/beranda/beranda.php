@@ -15,11 +15,12 @@
 </div>
 
 <script type="text/javascript">
-function cari() {
-    var ini_id =$('#cari').val();
-    var url = "http://localhost/sig_sekolah/test.php?id="+ini_id;
-    $("#menu-cari").load(url);
-}
+    function cari() {
+        var ini_id = $('#cari').val();
+        var id = ini_id.split(' ').join('%20');
+        var url = "http://localhost/sig_sekolah/test.php?id="+id;
+        $("#menu-cari").load(url);
+    }
 
 
     $(document).ready(function () {
@@ -157,7 +158,7 @@ function cari() {
                 {
                     key: "ruangkelasxii",
                     fillColor: "ffffff",
-                    toolTip: "<div style='text-align: center; text-decoration: none;'>Ruang Kelas XII</div>"
+                    toolTip: "<div style='text-align: center; text-decoration: none;'><a href='?pg=inventaris_detail&id_ruang=25'>Ruang Kelas XII</a></div>"
                 }
             ]
         });

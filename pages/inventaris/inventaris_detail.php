@@ -34,7 +34,7 @@ $q = mysqli_query($conn, "select * from tb_inventaris where id_ruang = $id_ruang
 	<tr>
 	<td><?= $no++; ?></td>
 	<td><?php echo $data['nama_inventaris']; ?></td>
-	<td><?php echo $data['nomor_inventaris']; ?></td>
+	<td>0<?=$data["id_kategori"]?>.0<?=$data["id_ruang"]?>.0<?=$data["id_inventaris"]?></td>
 	<!-- <td><?php echo $data['tgl_pembelian']; ?></td> -->
 	<!-- <td><?php echo $data['dibeli_oleh']; ?></td> -->
 	<!-- <td><?php echo $data['nilai_pembelian']; ?></td> -->

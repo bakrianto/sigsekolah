@@ -36,7 +36,7 @@ session_start();
 	            <td><?=$data["jabatan"]?></td>
 	            <td><?=$data["struktural"]?></td>
 	            <td><?=$data["alamat"]?></td>
-	            <td style="width:120px" class="text-center"><img style="width:100px" src="<?="./images/anggota/".$data["pict"]?>" style=""></td>
+	            <td style="width:120px" class="text-center"><div style="background-image: url('<?="./images/anggota/".$data["pict"]?>');height: 100px;width: 100px;background-size: cover;background-position: center;"></div></td>
 	            <td><?=$data["no_hp"]?></td>
 	            <td class="text-center"><!-- <a class="btn btn-warning" href="?pg=organisasi_tampil&id=<?=$data["id"]?>" title=""><i class="fa fa-search-plus"></i> Detail</a>&nbsp; --><a class="btn btn-info" href="?pg=organisasi_form&act=edit&id=<?=$data["id"]?>"><i class="fa fa-pencil fa-fw"></i> Edit</a>&nbsp;<a class="btn btn-danger" href="?pg=organisasi_hapus&id=<?=$data["id"]?>"><i class="fa fa-trash-o fa-fw"></i> Hapus</a></td>
 	          </tr>

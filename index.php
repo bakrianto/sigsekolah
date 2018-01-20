@@ -52,8 +52,6 @@ session_start(); ?>
     <script type="text/javascript" src="asset/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="dist/js/jquery.imagemapster.js"></script>
     <!-- Datatables -->
-
-    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery.dataTables.js"></script>
 
     <style type="text/css" media="screen">

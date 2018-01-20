@@ -69,7 +69,17 @@ if(!empty($_GET['id_inventaris'])){
           <div class="form-group">
           <tr>
             <label style="width: 200px">Asal</label>
-            <select name="asal" class="form-control">
+            <div class="radio">
+            <input type="radio" name="asal" value="Hibah"/> Hibah <br>
+            <input type="radio" name="asal" value="Dana"/> Dana <br>
+            <input type="radio" name="asal" value="Bos"/> BOS <br>
+            <input type="radio" name="asal" value="Komite"/> Komite <br>
+            <input type="radio" name="asal" value="Yayasan"/> Yayasan <br>
+            <input type="radio" name="asal" value="APBN"/> APBN <br>
+            <input type="radio" name="asal" value="APBD"/> APBD <br>
+
+            </div>
+            <!-- <select name="asal" class="form-control">
              <option>Pilih Asal</option>
              <optgroup label="Hibah">
                <option>Hibah</option>
@@ -80,7 +90,7 @@ if(!empty($_GET['id_inventaris'])){
                <option>Yayasan</option>
                <option>APBN</option>
                <option>APBD</option>
-            </select>
+            </select> -->
           </tr>
           </div>
           </div>
@@ -137,12 +147,21 @@ if(!empty($_GET['id_inventaris'])){
           <div class="form-group">
           <tr>
             <label style="width: 200px">Kondisi</label>
-            <select name="kondisi" class="form-control">
+            <div class="radio">
+                <input type="radio" name="kondisi" id="optionsRadios2" value="Baik">
+                Baik <br>
+                <input type="radio" name="kondisi" id="optionsRadios2" value="Rusak Ringan">
+                Rusak Ringan <br>
+                <input type="radio" name="kondisi" id="optionsRadios2" value="Rusak Berat">
+                Rusak Berat <br>
+            </div>
+
+            <!-- <select name="kondisi" class="form-control">
               <option>Pilih Kondisi</option>
               <option>Baik</option>
               <option>Rusak Ringan</option>
               <option>Rusak Berat</option>
-            </select>
+            </select> -->
             <!-- <input type="text" class="form-control" name="kondisi" placeholder="Kondisi" value="<?=$data[kondisi]?>" /> -->
           </tr>
           </div>
@@ -152,7 +171,7 @@ if(!empty($_GET['id_inventaris'])){
           <tr>
             <label style="width: 200px">Foto</label>
             <input type="file" class="form-control" name="foto">
-            <div style="margin-left: 205px">
+            <div style="margin-left: 205px; padding-top: 10px;">
               <span><img style="width:150px" src="<?=$base_url."/images/barang/".$data[pict]?>"></span>
             </div>
           </tr>
