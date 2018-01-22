@@ -1,10 +1,10 @@
 <?php session_start(); ?>
 <?php
 include_once("koneksi.php");
-$q=mysqli_query($conn, "SELECT id_ruang, id_kategori, id_inventaris, nama_inventaris, nama_kategori, nama_ruang, asal, tgl_pembelian, dibeli_oleh, nilai_pembelian, merk, nilai_saat_ini, kondisi, ket
+$q=mysqli_query($conn, "SELECT id_ruang, id_kategori, id_inventaris, nama_inventaris, nama_kategori, nama_ruang, asal, tgl_pembelian, dibeli_oleh, nilai_pembelian, merk, nilai_saat_ini, kondisi, COUNT(nama_inventaris) AS jumlah, ket
 FROM tb_inventaris
 INNER JOIN tb_kategori USING (id_kategori)
-INNER JOIN tb_ruang USING (id_ruang) group by nama_inventaris");
+INNER JOIN tb_ruang USING (id_ruang) GROUP BY nama_inventaris");
 
 $inventaris = mysqli_query($conn, "SELECT id_ruang, id_kategori, id_inventaris FROM tb_inventaris");
 ?>
@@ -33,9 +33,12 @@ if ($_SESSION['username'] == "admin"){ ?>
             <th>Tanggal Beli</th>
             <th>Dibeli Oleh</th>
             <!-- <th>Harga Beli</th> -->
-            <th>Merk/Tipe/Ukuran</th>
+            <th>Merk</th>
             <!-- <th>Harga Jual</th> -->
             <th>Kondisi</th>
+            <th>Jml awal</th>
+            <th>Jml Akhir</th>
+            <th>Satuan</th>
            <!--  <th>Keterangan</th> -->
             <th class="text-center">Aksi</th>
           </tr>
@@ -58,8 +61,11 @@ if ($_SESSION['username'] == "admin"){ ?>
             <td><?=$data["merk"]?></td>
             <!-- <td>Rp.<?=$data["nilai_saat_ini"]?>,-</td> -->
             <td><?=$data["kondisi"]?></td>
+            <td><?=$data['jumlah'];?></td>
+            <td><?=$data['jumlah'];?></td>
+            <td>Pcs</td>
             <!-- <td><?=$data["ket"]?></td> -->
-            <td><a class="btn btn-warning" href="?pg=inventaris_tampil&id_inventaris=<?=$data["id_inventaris"]?>" title=""><i class="fa fa-search-plus"></i></a>&nbsp;<a class="btn btn-info" href="?pg=inventaris_form&act=edit&id_inventaris=<?=$data["id_inventaris"]?>"><i class="fa fa-pencil fa-fw"></i></a>&nbsp;<a class="btn btn-danger" href="?pg=inventaris_hapus&id_inventaris=<?=$data["id_inventaris"]?>"><i class="fa fa-trash-o fa-fw"></i></a></td>
+            <td><a class="btn btn-warning" href="?pg=inventaris_tampil&id_inventaris=<?=$data["id_inventaris"]?>"><i class="fa fa-search-plus"></i></a>&nbsp;<a class="btn btn-info" href="?pg=inventaris_form&act=edit&id_inventaris=<?=$data["id_inventaris"]?>"><i class="fa fa-pencil fa-fw"></i></a>&nbsp;<a class="btn btn-danger" href="?pg=inventaris_hapus&id_inventaris=<?=$data["id_inventaris"]?>"><i class="fa fa-trash-o fa-fw"></i></a></td>
           </tr>
         <?php } ?>
         </tbody>

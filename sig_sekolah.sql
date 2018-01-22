@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2017 at 05:27 AM
+-- Generation Time: Jan 22, 2018 at 07:41 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -45,6 +45,17 @@ INSERT INTO `tb_admin` (`id_admin`, `username`, `password`, `nama_lengkap`, `lev
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_barang`
+--
+
+CREATE TABLE `tb_barang` (
+  `id_barang` int(11) NOT NULL,
+  `nama` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_bukutamu`
 --
 
@@ -76,7 +87,6 @@ CREATE TABLE `tb_inventaris` (
   `id_ruang` int(11) NOT NULL,
   `asal` varchar(20) NOT NULL,
   `nama_inventaris` varchar(100) NOT NULL,
-  `nomor_inventaris` int(11) NOT NULL,
   `tgl_pembelian` date NOT NULL,
   `dibeli_oleh` varchar(50) NOT NULL,
   `nilai_pembelian` int(11) NOT NULL,
@@ -91,15 +101,16 @@ CREATE TABLE `tb_inventaris` (
 -- Dumping data for table `tb_inventaris`
 --
 
-INSERT INTO `tb_inventaris` (`id_inventaris`, `id_kategori`, `id_ruang`, `asal`, `nama_inventaris`, `nomor_inventaris`, `tgl_pembelian`, `dibeli_oleh`, `nilai_pembelian`, `merk`, `nilai_saat_ini`, `kondisi`, `pict`, `ket`) VALUES
-(2, 1, 2, 'Hibah', 'kursi', 101010, '2017-11-01', 'ari', 200000, 'olimpic', 100000, 'Baik', 'meja.jpg', ''),
-(3, 5, 1, 'BOS', 'meja', 101011, '2017-11-02', 'ari', 300000, 'lokal', 290000, 'Baik', 'meja.jpg', ''),
-(4, 1, 4, 'APBN', 'rak', 1401, '2017-11-01', 'ari', 500000, 'lokal', 400000, 'Rusak ringan', 'meja.jpg', ''),
-(5, 5, 1, 'APBD', 'meja', 1402, '2017-11-01', 'ari', 300000, 'olimpic', 250000, 'Rusak berat', 'meja.jpg', ''),
-(7, 5, 0, 'Yayasan', 'jam dinding', 1015, '2017-11-02', 'edi', 20000, 'kasio', 10000, 'Baik', 'meja.jpg', ''),
-(8, 5, 1, 'Komite Sekolah', 'sapu lidi', 1001, '2017-11-01', 'ari', 15000, 'local', 5000, 'Rusak ringan', 'meja.jpg', ''),
-(10, 2, 4, 'Dana', 'komputer', 102120, '2017-11-01', 'budi', 3000000, 'Thosiba', 2800000, 'Baik', 'meja.jpg', ''),
-(11, 2, 3, 'Dana', 'meja', 324646, '2017-12-07', 'sopo', 250000, 'lokal', 150000, 'Baik', '1566_y8oXYt93.jpg', '');
+INSERT INTO `tb_inventaris` (`id_inventaris`, `id_kategori`, `id_ruang`, `asal`, `nama_inventaris`, `tgl_pembelian`, `dibeli_oleh`, `nilai_pembelian`, `merk`, `nilai_saat_ini`, `kondisi`, `pict`, `ket`) VALUES
+(2, 1, 2, 'Hibah', 'kursi', '2017-11-01', 'ari', 200000, 'olimpic', 100000, 'Kondisi 80-100%', 'meja.jpg', ''),
+(3, 5, 1, 'BOS', 'meja', '2017-11-02', 'ari', 300000, 'lokal', 290000, 'Kondisi 80-100%', 'meja.jpg', ''),
+(4, 1, 4, 'APBN', 'rak', '2017-11-01', 'ari', 500000, 'lokal', 400000, 'Kerusakan 10-50%', 'meja.jpg', ''),
+(5, 5, 1, 'APBD', 'meja', '2017-11-01', 'ari', 300000, 'olimpic', 250000, 'Kerusakan 50-90%', 'meja.jpg', ''),
+(7, 5, 3, 'Yayasan', 'jam dinding', '2017-11-02', 'edi', 20000, 'kasio', 10000, 'Kondisi 80-100%', 'meja.jpg', ''),
+(8, 5, 1, 'Komite Sekolah', 'sapu lidi', '2017-11-01', 'ari', 15000, 'local', 5000, 'Kerusakan 10-50%', 'meja.jpg', ''),
+(10, 2, 4, 'Dana', 'komputer', '2017-11-01', 'budi', 3000000, 'Thosiba', 2800000, 'Kondisi 80-100%', 'meja.jpg', ''),
+(11, 2, 3, 'Dana', 'meja', '2017-12-07', 'sopo', 250000, 'lokal', 150000, 'Kondisi 80-100%', '1566_y8oXYt93.jpg', ''),
+(12, 1, 27, 'Bos', 'papan tulis', '2018-01-02', 'Saya', 100000, 'olimpic', 100000, 'Kondisi 80-100%', 'WP_20171009_057.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -144,7 +155,7 @@ CREATE TABLE `tb_organisasi` (
 --
 
 INSERT INTO `tb_organisasi` (`id`, `nama`, `jabatan`, `struktural`, `alamat`, `pict`, `no_hp`) VALUES
-(1, 'Budi', 'Kepala Sekolah', 'Komite', 'Bantul', 'download.jpg', 235435),
+(1, 'Budi', 'Kepala Sekolah', 'Komite', 'Bantul', 'WP_20171009_026 yustina.jpg', 235435),
 (17, 'Bambang', 'Guru', 'Yayasan', 'Bantul', 'sekolah.jpg', 8978),
 (18, 'bahlul', 'bendahara', 'Komite', 'jogja', '284-AUK177a1.jpg', 45645);
 
@@ -206,6 +217,12 @@ ALTER TABLE `tb_admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
+-- Indexes for table `tb_barang`
+--
+ALTER TABLE `tb_barang`
+  ADD PRIMARY KEY (`id_barang`);
+
+--
 -- Indexes for table `tb_bukutamu`
 --
 ALTER TABLE `tb_bukutamu`
@@ -245,6 +262,11 @@ ALTER TABLE `tb_ruang`
 ALTER TABLE `tb_admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `tb_barang`
+--
+ALTER TABLE `tb_barang`
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `tb_bukutamu`
 --
 ALTER TABLE `tb_bukutamu`
@@ -253,7 +275,7 @@ ALTER TABLE `tb_bukutamu`
 -- AUTO_INCREMENT for table `tb_inventaris`
 --
 ALTER TABLE `tb_inventaris`
-  MODIFY `id_inventaris` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_inventaris` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `tb_kategori`
 --

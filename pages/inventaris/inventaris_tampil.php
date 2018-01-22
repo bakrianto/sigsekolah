@@ -1,16 +1,16 @@
 <?php 
 include 'koneksi.php';
 $i++;
-$query = "SELECT id_inventaris, nama_inventaris, nama_kategori, nama_ruang, asal, nomor_inventaris,tgl_pembelian, dibeli_oleh, nilai_pembelian, merk, nilai_saat_ini, kondisi, pict, ket
+$query = "SELECT *
 FROM tb_inventaris
-INNER JOIN tb_kategori ON tb_inventaris.id_kategori=tb_kategori.id_kategori
-INNER JOIN tb_ruang ON tb_inventaris.id_ruang=tb_ruang.id_ruang WHERE id_inventaris='$_GET[id_inventaris]'";
+LEFT JOIN tb_kategori USING (id_kategori)
+LEFT JOIN tb_ruang USING (id_ruang) WHERE id_inventaris = '$_GET[id_inventaris]'";
 $q = mysqli_query($conn, $query);
 
 while ($data = mysqli_fetch_assoc($q)) {
 	/*echo "<pre>", print_r($data);*/
 	$nama = $data['nama_inventaris'];
-	$nomor = $data["nomor_inventaris"];
+	$nomor = "0".$data["id_kategori"].".0".$data["id_ruang"].".0".$data["id_inventaris"];
     $kategori = $data["nama_kategori"];
     $letak = $data["nama_ruang"];
     $asal = $data["asal"];
@@ -59,3 +59,6 @@ while ($data = mysqli_fetch_assoc($q)) {
          ";
 }
 ?>
+<div class="container">
+    <a href="?pg=inventaris" class="btn btn-primary">Kembali</a>
+</div>

@@ -148,11 +148,11 @@ if(!empty($_GET['id_inventaris'])){
           <tr>
             <label style="width: 200px">Kondisi</label>
             <div class="radio">
-                <input type="radio" name="kondisi" id="optionsRadios2" value="Baik">
+                <input type="radio" name="kondisi" id="optionsRadios2" value="Kondisi 80-100%">
                 Baik <br>
-                <input type="radio" name="kondisi" id="optionsRadios2" value="Rusak Ringan">
+                <input type="radio" name="kondisi" id="optionsRadios2" value="Kerusakan 10-50%">
                 Rusak Ringan <br>
-                <input type="radio" name="kondisi" id="optionsRadios2" value="Rusak Berat">
+                <input type="radio" name="kondisi" id="optionsRadios2" value="Kerusakan 50-90%">
                 Rusak Berat <br>
             </div>
 

@@ -17,13 +17,17 @@ $q=mysqli_query($conn, "SELECT * FROM `tb_ruang`");
       <tr>
         <th>No</th>
         <th>Nama Ruang</th>
+        <!-- <th>Jumlah Awal</th>
+        <th>Jumlah Akhir</th>
+        <th>Satuan</th> -->
         <th>Aksi</th>
       </tr>
     <?php
     while ($data=mysqli_fetch_assoc($q)){ 
-    $i++;?>
+    $i = 1;
+    ?>
       <tr>
-        <td><?=$data["id_ruang"]?></td>
+        <td><?=$data['id_ruang'];?></td>
         <td><?=$data["nama_ruang"]?></td>
         <td><a class="btn btn-info" href="?pg=ruang_form&act=edit&id_ruang=<?=$data["id_ruang"]?>"><i class="fa fa-pencil fa-fw"></i> Edit</a>&nbsp;
     <a class="btn btn-danger" href="?pg=ruang_hapus&id_ruang=<?=$data["id_ruang"]?>"><i class="fa fa-trash-o fa-fw"></i>Hapus</a></td>

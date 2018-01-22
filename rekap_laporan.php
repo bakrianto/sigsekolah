@@ -32,10 +32,10 @@ $sampai = date_format(date_create($_POST['akhir']), 'Y-m-d');
 //Koneksi ke database dan tampilkan datanya
 include 'koneksi.php';
 // $angkatan=$_GET['angkatan'];
-$tampil = "SELECT id_ruang, id_kategori, id_inventaris, nama_inventaris, nama_kategori, nama_ruang, asal, tgl_pembelian, dibeli_oleh, nilai_pembelian, merk, nilai_saat_ini, kondisi, ket
+$tampil = "SELECT id_ruang, id_kategori, id_inventaris, nama_inventaris, nama_kategori, nama_ruang, asal, tgl_pembelian, dibeli_oleh, nilai_pembelian, merk, nilai_saat_ini, kondisi, COUNT(nama_inventaris) AS jml, ket
 FROM tb_inventaris
 INNER JOIN tb_kategori USING (id_kategori)
-INNER JOIN tb_ruang USING (id_ruang) group by nama_inventaris";
+INNER JOIN tb_ruang USING (id_ruang) GROUP BY nama_inventaris";
 //echo $tampil;exit;
 $sql = mysqli_query($conn,$tampil);
 
@@ -57,6 +57,9 @@ while($r = mysqli_fetch_array($sql)) {
 				   'Dibeli Oleh'=>"$r[dibeli_oleh]",
 				   'Merk'=>"$r[merk]",
 				   'Kondisi'=>"$r[kondisi]",
+				   'Jumlah Awal'=>"$r[jml]",
+				   'jumlah Akhir'=>"$r[jml]",
+				   'Satuan'=>"pcs",
 				   );
 	$i++;
 	$total=$total+$r['total'];
