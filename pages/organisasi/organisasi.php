@@ -11,6 +11,7 @@ session_start();
 	    <div class="container text-center">
 	            <h2>Data Pegawai Sekolah</h2>
 	        <hr style="margin-top: 0px; ">
+	        
 	    </div>
 	    <div class="container"> 
         	<div class="pull-left" style="padding-bottom: 20px"><a class="btn btn-info" href="?pg=organisasi_form"><i class="fa fa-plus fa-fw"></i> Tambah</a></div>
@@ -22,6 +23,7 @@ session_start();
 	            <th>Nama</th>
 	            <th>Jabatan</th>
 	            <th>Struktural</th>
+	            <th>Struktur Aktif</th>
 	            <th>Alamat</th>
 	            <th>Foto</th>
 	            <th>No HP</th>
@@ -29,12 +31,15 @@ session_start();
 	          </tr>
 	        <?php
 	        while ($data=mysqli_fetch_assoc($q)){ 
-	        $i++;?>
+	        $i++;
+	        $s_aktif = ($data['aktif']) ? 'Aktif' : 'Tidak Aktif' ;
+	        ?>
 	          <tr>
 	            <td><?=$i?></td>
 	            <td><?=$data["nama"]?></td>
 	            <td><?=$data["jabatan"]?></td>
 	            <td><?=$data["struktural"]?></td>
+	            <td><?=$s_aktif?></td>
 	            <td><?=$data["alamat"]?></td>
 	            <td style="width:120px" class="text-center"><div style="background-image: url('<?="./images/anggota/".$data["pict"]?>');height: 100px;width: 100px;background-size: cover;background-position: center;"></div></td>
 	            <td><?=$data["no_hp"]?></td>

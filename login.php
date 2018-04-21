@@ -13,7 +13,7 @@
 		if ($username=="admin") {
 			header("location:index.php?pg=kategori");
 		} else {
-			header("location:index.php?pg=beranda");
+			header("location:index.php?pg=beranda_index");
 		}
 	}else{   								//jika tidak tampilkan pesan gagal login
 		header("location:index.php?msg=Username/Password Salah");

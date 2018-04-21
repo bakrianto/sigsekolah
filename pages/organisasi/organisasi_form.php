@@ -17,6 +17,9 @@ if(!empty($_GET['id'])){
 </div>
 <div class="container">
   <div class="row">
+      <div class="col-md-11 alert alert-warning">
+          <strong>Peringatan!</strong> Ukuran File Tidak Boleh Melebihi 2MB
+      </div>
       <form class="form" action="<?=$action?>" method="post" enctype="multipart/form-data">
         <div class="form-inline" style="padding-bottom: 10px">
           <div class="form-group">
@@ -39,19 +42,37 @@ if(!empty($_GET['id'])){
           <tr>
             <label style="width: 200px">Struktural</label>
             <select name="struk" class="form-control">
-              <option>-- Pilih --</option>}
-              <option>Komite</option>
-              <option>Organisasi</option>
-              <option>Yayasan</option>}
+              <option value=""></option>
+              <option value="Kepala Sekolah" <?= $st = ($data['struktural']=='Kepala Sekolah') ? 'selected' : '' ; ?>>Kepala Sekolah</option>
+              <option value="Wakil Kepala" <?= $st = ($data['struktural']=='Wakil Kepala') ? 'selected' : '' ; ?>>Wakil Kepala</option>
+              <option value="Tata Usaha" <?= $st = ($data['struktural']=='Tata Usaha') ? 'selected' : '' ; ?>>Tata Usaha</option>
+              <option value="Bendahara" <?= $st = ($data['struktural']=='Bendahara') ? 'selected' : '' ; ?>>Bendahara</option>
+              <option value="Humas" <?= $st = ($data['struktural']=='Humas') ? 'selected' : '' ; ?>>Humas</option>
+              <option value="Kesiswaan" <?= $st = ($data['struktural']=='Kewirausahaan') ? 'selected' : '' ; ?>>Kesiswaan</option>
+              <option value="Kepegawaian" <?= $st = ($data['struktural']=='Kepegawaian') ? 'selected' : '' ; ?>>Kepegawaian</option>
+              <option value="Kurikulum" <?= $st = ($data['struktural']=='Kurikulum') ? 'selected' : '' ; ?>>Kurikulum</option>
             </select>
           </tr>
           </div>
           </div>
+          
+          <div class="form-inline" style="padding-bottom: 10px">
+            <div class="form-group">
+              <tr>
+                <label style="width: 200px">Struktur Aktif</label>
+                <select name="aktif" class="form-control">
+                  <option value="1" <?= $st = ($data['aktif']=='1') ? 'selected' : '' ; ?>>Aktif</option>
+                  <option value="0" <?= $st = ($data['aktif']=='0') ? 'selected' : '' ; ?>>Tidak Aktif</option>
+                </select>
+              </tr>
+            </div>
+          </div>
+
           <div class="form-inline" style="padding-bottom: 10px">
           <div class="form-group">
           <tr>
             <label style="width: 200px">Alamat</label>
-            <input type="text" class="form-control" style="width: 350px" name="alamat" placeholder="Alamat" value="<?=$data[alamat]?>" />
+            <input type="text" class="form-control" style="width: 350px" name="alamat" placeholder="Alamat" value="<?=$data[alamat]?>"/>
           </tr>
           </div>
           </div>
@@ -59,20 +80,21 @@ if(!empty($_GET['id'])){
           <div class="form-group">
           <tr>
             <label style="width: 200px">Foto</label>
-            <input type="file" class="form-control" name="foto">
+            <input type="file" class="form-control" name="foto" <?=$requi = ($_GET['act']=="edit") ? '' : 'required' ; ?> >
             <div style="margin-left: 205px">
-              <span><img style="width:150px" src="<?=$base_url."/images/anggota/".$data[pict]?>"></span>
+              <span><img style="width:150px" src="./images/anggota/<?=$data[pict]?>"></span>
             </div>
           </tr>
           </div>
           </div>
+
           <div class="form-inline" style="padding-bottom: 10px">
-          <div class="form-group">
-          <tr>
-            <label style="width: 200px">No HP</label>
-            <input type="text" class="form-control" style="width: 350px" name="no" placeholder="No HP" value="<?=$data[no_hp]?>" />
-          </tr>
-          </div>
+            <div class="form-group">
+              <tr>
+                <label style="width: 200px">No HP</label>
+                <input type="text" class="form-control" style="width: 350px" name="no" placeholder="No HP" value="<?=$data[no_hp]?>" />
+              </tr>
+            </div>
           </div>
           <tr>
             <td>
@@ -81,7 +103,7 @@ if(!empty($_GET['id'])){
               <?php } ?>
             </td>
             <td>
-              <button type="submit" class="btn btn-info"><i class="fa fa-save fa-fw"></i> Simpan</button> &nbsp;<button type="reset" class="btn btn-danger"><i class="fa fa-undo"></i> Batal</button> 
+              <button type="submit" class="btn btn-info"><i class="fa fa-save fa-fw"></i> Simpan</button> &nbsp;<a href="?pg=organisasi" class="btn btn-danger"><i class="fa fa-undo"></i> Batal</a> 
             </td>
           </tr>
       </form>

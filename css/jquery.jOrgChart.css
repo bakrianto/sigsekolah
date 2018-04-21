@@ -34,7 +34,7 @@
   background-color 		  : #ffffff;
   display               : inline-block;
   width                 : 120px;
-  height                : 150px;
+  height                : 180px;
   z-index 				      : 10;
   margin                : 0 2px;
   border                : 1px solid black;
@@ -58,4 +58,8 @@
     /* height: 80px; */
     z-index: 10;
     margin: 0 2px;
+}
+
+.nama{
+  height: 45px;
 }

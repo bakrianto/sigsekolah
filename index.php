@@ -63,6 +63,14 @@ session_start(); ?>
         #map {
         height: 100%;
     }
+
+    .mg-bot {
+        margin-bottom: 5px;
+    }
+
+    .mg-0 {
+        margin: 0;
+    }
     </style>
 
 </head>
@@ -92,7 +100,7 @@ session_start(); ?>
         <ul class="nav navbar-top-links navbar-right" style="margin-top: 10px">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i>  <?php echo "$_SESSION[usernm]" ?>&nbsp;<i class="fa fa-caret-down"></i>
+                    <i class="fa fa-user fa-fw"></i>  <?php echo strtoupper($_SESSION['username']); ?>&nbsp;<i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="index.php?pg=admin"><i class="fa fa-user fa-fw"></i> Tambah/Edit</a>
@@ -112,8 +120,11 @@ session_start(); ?>
         <div id="navbar" class="navbar-collapse collapse center">
             <div class="container">
                 <ul class="nav navbar-nav">
+                     <li>
+                    <a href="index.php?pg=beranda_index"><i class="glyphicon glyphicon-tasks"></i> Beranda</a>
+                    </li>
                     <li>
-                    <a href="index.php?pg=kategori"><i class="glyphicon glyphicon-tasks"></i> Kategori</a>
+                    <a href="index.php?pg=kategori"><i class="glyphicon glyphicon-tasks"></i> Jenis Barang</a>
                     </li>
                     <li>
                     <a href="index.php?pg=ruang"><i class="glyphicon glyphicon-home"></i> Ruang</a>
@@ -145,7 +156,7 @@ session_start(); ?>
 
     <section class="container" style="background-color: #ffffff">
         <?php
-        if(empty($_GET['pg']) OR $_GET['pg']=='beranda')include 'beranda.php';
+        if(empty($_GET['pg']) OR $_GET['pg']=='beranda_index')include 'beranda_index.php';
 
         $link = $_GET['pg'];
         $link = explode("_", $link);
@@ -176,7 +187,7 @@ session_start(); ?>
         <ul class="nav navbar-top-links navbar-right" style="margin-top: 10px">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i>  <?php echo "$_SESSION[usernm]" ?>&nbsp;<i class="fa fa-caret-down"></i>
+                    <i class="fa fa-user fa-fw"></i>  <?php echo strtoupper($_SESSION['username']); ?>&nbsp;<i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="logoff.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -193,14 +204,14 @@ session_start(); ?>
             <div class="container">
                 <ul class="nav navbar-nav">
                     <li>
-                    <a href="index.php?pg=beranda"><i class="glyphicon glyphicon-home"></i> Beranda</a>
+                    <a href="index.php?pg=beranda_index"><i class="glyphicon glyphicon-home"></i> Beranda</a>
                     </li>
                     <li>
                     <a href="index.php?pg=profil"><i class="glyphicon glyphicon-user"></i> Profil</a>
                     </li>
-                    <li>
+                    <!-- <li>
                     <a id="user" href="index.php?pg=inventaris"><i class="glyphicon glyphicon-th-list"></i> Inventaris</a>
-                    </li>
+                    </li> -->
                     <li>
                     <a class="show" href="index.php?pg=organisasi"><i class="fa fa-users"></i> Organisasi</a>
                     </li>
@@ -213,9 +224,9 @@ session_start(); ?>
     </section>
 
     <section class="container text-center" style="background-color: #ffffff">
-        <div class="row" style="margin-bottom: 50px">
+        <!-- <div class="row" style="margin-bottom: 50px"> -->
         <?php
-            if(empty($_GET['pg']) OR $_GET['pg']=='beranda')include 'beranda.php';
+            if(empty($_GET['pg']) OR $_GET['pg']=='beranda_index')include 'beranda_index.php';
 
                 $link = $_GET['pg'];
                 $link = explode("_", $link);
@@ -224,7 +235,7 @@ session_start(); ?>
                 include 'pages/'.$folder.'/'.$_GET['pg'].'.php';
             
             ?>
-        </div>
+        <!-- </div> -->
     </section>
 
     <?php }

@@ -14,38 +14,41 @@
 <table class="table table-bordered">
 	<tr>
 		<th>No. </th>
-		<th>Nama Barang</th>
-		<th>Nomor Barang</th>
+		<th>Kategori</th>
+		<th>Jumlah</th>
 		<!-- <th>Tanggal Beli</th> -->
 		<!-- <th>Pembeli</th> -->
 		<!-- <th>Harga Beli</th> -->
 		<!-- <th>Asal</th> -->
 		<!-- <th>Merk/Tipe/Ukuran</th> -->
 		<!-- <th>Harga Sekarang</th> -->
-		<th>Kondisi</th>
+		<!-- <th>Kondisi</th> -->
 		<!-- <th>Keterangan</th> -->
 		<th>Aksi</th>
 	</tr>
 <?php 
 $no = 1;
-$q = mysqli_query($conn, "select * from tb_inventaris where id_ruang = $id_ruang"); ?>
+$q = mysqli_query($conn, "select *, COUNT(id_ruang) AS jml_brg from tb_inventaris left join tb_kategori on tb_kategori.id_kategori=tb_inventaris.id_kategori where id_ruang = $id_ruang GROUP BY tb_inventaris.id_kategori"); ?>
 
 <?php while ($data = mysqli_fetch_assoc($q)) {?>
 	<tr>
-	<td><?= $no++; ?></td>
-	<td><?php echo $data['nama_inventaris']; ?></td>
-	<td>0<?=$data["id_kategori"]?>.0<?=$data["id_ruang"]?>.0<?=$data["id_inventaris"]?></td>
+	<td class="text-left"><?= $no++; ?></td>
+	<td class="text-left"><?php echo $data['nama_kategori']; ?></td>
+	<td class="text-left"><?php echo $data['jml_brg']; ?> Unit</td>
+	<!-- <td>0<?=$data["id_kategori"]?>.0<?=$data["id_ruang"]?>.0<?=$data["id_inventaris"]?></td> -->
 	<!-- <td><?php echo $data['tgl_pembelian']; ?></td> -->
 	<!-- <td><?php echo $data['dibeli_oleh']; ?></td> -->
 	<!-- <td><?php echo $data['nilai_pembelian']; ?></td> -->
 	<!-- <td><?php echo $data['asal'];?></td> -->
 	<!-- <td><?php echo $data['merk']; ?></td> -->
 	<!-- <td><?php echo $data['nilai_saat_ini']; ?></td> -->
-	<td><?php echo $data['kondisi']; ?></td>
+	<!-- <td class="text-left"><?php echo $data['kondisi']; ?></td> -->
 	<!-- <td><?php echo $data['ket']; ?></td> -->
-	<td><a class="btn btn-warning" href="?pg=inventaris_tampil&id_inventaris=<?=$data["id_inventaris"]?>"><i class="fa fa-search-plus"></i> Detail</a></td>
+	<td><a class="btn btn-warning" href="?pg=inventaris_kategori&kategori=<?=$data[id_kategori]?>&ruang=<?=$data[id_ruang]?>"><i class="fa fa-search-plus"></i> Detail</a></td>
 	</tr>
 <?php }
+
+// echo "----".mysqli_info($con);
 ?>
 </table>
 </div>

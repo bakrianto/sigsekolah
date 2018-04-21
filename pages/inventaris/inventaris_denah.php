@@ -1,4 +1,87 @@
-<?php  
+<?php 
+	include 'koneksi.php';
+	$q_1 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='1'";
+	$q_2 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='2'";
+	$q_3 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='3'";
+	$q_4 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='4'";
+	$q_5 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='5'";
+	$q_6 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='6'";
+	$q_7 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='7'";
+	$q_8 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='8'";
+	$q_9 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='9'";
+	$q_10 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='10'";
+	$q_11 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='11'";
+	$q_12 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='12'";
+	$q_13 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='13'";
+	$q_14 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='14'";
+	$q_15 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='15'";
+	$q_16 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='16'";
+	$q_17 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='17'";
+	$q_18 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='18'";
+	$q_19 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='19'";
+	$q_20 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='20'";
+	$q_21 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='21'";
+	$q_22 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='22'";
+	$q_23 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='23'";
+	$q_24 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='24'";
+	$q_25 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='25'";
+	$q_26 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='26'";
+	$q_27 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='27'";
+	$q_28 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='28'";
+	$q_29 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='29'";
+	$q_30 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='30'";
+	$q_31 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='31'";
+	$q_32 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='32'";
+	$q_33 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='33'";
+	$q_34 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='34'";
+	$q_35 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='35'";
+	$q_36 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='36'";
+	$q_37 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='37'";
+	$q_38 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='38'";
+	$q_39 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='39'";
+	$q_40 = "SELECT nama_inventaris FROM tb_inventaris WHERE id_ruang='40'";
+	$query_1 = mysqli_query($conn, $q_1);
+	$query_2 = mysqli_query($conn, $q_2);
+	$query_3 = mysqli_query($conn, $q_3);
+	$query_4 = mysqli_query($conn, $q_4);
+	$query_5 = mysqli_query($conn, $q_5);
+	$query_6 = mysqli_query($conn, $q_6);
+	$query_7 = mysqli_query($conn, $q_7);
+	$query_8 = mysqli_query($conn, $q_8);
+	$query_9 = mysqli_query($conn, $q_9);
+	$query_10 = mysqli_query($conn, $q_10);
+	$query_11 = mysqli_query($conn, $q_11);
+	$query_12 = mysqli_query($conn, $q_12);
+	$query_13 = mysqli_query($conn, $q_13);
+	$query_14 = mysqli_query($conn, $q_14);
+	$query_15 = mysqli_query($conn, $q_15);
+	$query_16 = mysqli_query($conn, $q_16);
+	$query_17 = mysqli_query($conn, $q_17);
+	$query_18 = mysqli_query($conn, $q_18);
+	$query_19 = mysqli_query($conn, $q_19);
+	$query_20 = mysqli_query($conn, $q_20);
+	$query_21 = mysqli_query($conn, $q_21);
+	$query_22 = mysqli_query($conn, $q_22);
+	$query_23 = mysqli_query($conn, $q_23);
+	$query_24 = mysqli_query($conn, $q_24);
+	$query_25 = mysqli_query($conn, $q_25);
+	$query_26 = mysqli_query($conn, $q_26);
+	$query_27 = mysqli_query($conn, $q_27);
+	$query_28 = mysqli_query($conn, $q_28);
+	$query_29 = mysqli_query($conn, $q_29);
+	$query_30 = mysqli_query($conn, $q_30);
+	$query_31 = mysqli_query($conn, $q_31);
+	$query_32 = mysqli_query($conn, $q_32);
+	$query_33 = mysqli_query($conn, $q_33);
+	$query_34 = mysqli_query($conn, $q_34);
+	$query_35 = mysqli_query($conn, $q_35);
+	$query_36 = mysqli_query($conn, $q_36);
+	$query_37 = mysqli_query($conn, $q_37);
+	$query_38 = mysqli_query($conn, $q_38);
+	$query_39 = mysqli_query($conn, $q_39);
+	$query_40 = mysqli_query($conn, $q_40);
+?>
+<?php 
 for ($x = 1; $x <= 42; $x++) {
   echo "<div id='".$x."'></div>";
 }
@@ -572,253 +655,337 @@ for ($x = 1; $x <= 42; $x++) {
 	$(document).ready(function() {
 		$('#1').popover({
 		  title: "Halaman",
-		  content: "Kursi, Meja, Tiang Bendera",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_1)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#2').popover({
 		  title: "Parkir",
-		  content: "<div class='text-center'>Kursi, Meja <br> <img style='width:50px' src='http://localhost/sig_sekolah/images/barang/meja.jpg'></div>",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_2)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#3').popover({
 		  title: "Ruang Tamu",
-		  content: "<div class='text-center'>Kursi, Meja <br> <img style='width:50px' src='http://localhost/sig_sekolah/images/barang/meja.jpg'></div>",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_3)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#4').popover({
 		  title: "Ruang TU",
-		  content: "<div class='text-center'>Kursi, Meja <br> <img style='width:50px' src='http://localhost/sig_sekolah/images/barang/meja.jpg'></div>",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_4)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#5').popover({
 		  title: "Ruang Kepala Sekolah",
-		  content: "<div class='text-center'>Kursi, Meja <br> <img style='width:50px' src='http://localhost/sig_sekolah/images/barang/meja.jpg'></div>",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_5)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#6').popover({
 		  title: "Kantin",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_6)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#7').popover({
 		  title: "TKLB",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_7)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#8').popover({
 		  title: "Gudang",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_8)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});		
 		$('#9').popover({
 		  title: "UKS",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_9)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#10').popover({
 		  title: "Ibadah",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_10)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#11').popover({
 		  title: "OSIS",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_11)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#12').popover({
 		  title: "Gudang",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_12)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#13').popover({
 		  title: "Kesenian",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_13)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#14').popover({
 		  title: "Salon",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_14)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#15').popover({
 		  title: "Boga",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_15)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#16').popover({
 		  title: "Kelas",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_16)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#17').popover({
 		  title: "BK",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_17)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#18').popover({
 		  title: "Kolam Renang",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_18)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});		
 		$('#19').popover({
 		  title: "Komputer",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_19)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#20').popover({
 		  title: "Kelas",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_20)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#21').popover({
 		  title: "Guru",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_21)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#22').popover({
 		  title: "Perpustakaan",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_22)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#23').popover({
 		  title: "Kelas X",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_23)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#24').popover({
 		  title: "Kelas XI",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_24)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#25').popover({
 		  title: "Kelas XII",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_25)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#26').popover({
 		  title: "WC Guru",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_26)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#27').popover({
 		  title: "WC Guru",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_27)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#28').popover({
 		  title: "WC Siswa",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_28)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});		
 		$('#29').popover({
 		  title: "WC Siswa",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_29)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#30').popover({
 		  title: "WC Siswa",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_30)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#31').popover({
 		  title: "WC Siswa",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_31)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#32').popover({
 		  title: "Ruang Ganti",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_32)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#33').popover({
 		  title: "Ruang Ganti",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_33)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#34').popover({
 		  title: "Ruang Ganti",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_34)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#35').popover({
 		  title: "WC Siswa",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_35)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#36').popover({
 		  title: "WC Siswa",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_36)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#37').popover({
 		  title: "wastafel",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_37)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#38').popover({
 		  title: "Kolam Kelas 10",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_38)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});		
 		$('#39').popover({
 		  title: "Kolam Kelas 11",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_39)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#40').popover({
 		  title: "Kolam Kelas 12",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_40)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#41').popover({
 		  title: "perkebunan",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_41)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});
 		$('#42').popover({
 		  title: "pertanian",
-		  content: "Kursi, Meja, ",
+		  content: "<?php while ($data = mysqli_fetch_assoc($query_42)) {
+						echo $data['nama_inventaris'].', ';
+					} ?>",
 		  html: true,
 		  placement: 'bottom'
 		});		

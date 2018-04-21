@@ -11,7 +11,7 @@ if(!empty($_GET['id_kategori'])){
 <div class="container">
   <div class="row">
       <div class="col-md-12">
-          <h1 class="page-header">Form tambah/edit Kategori</h1>
+          <h1 class="page-header">Form tambah/edit Jenis Barang</h1>
       </div>
   </div>
 
@@ -23,8 +23,15 @@ if(!empty($_GET['id_kategori'])){
         <form class="form-inline" action="<?=$action?>" method="post">
           <div class="form-group" style="margin-bottom: 30px">
             <tr>
-              <td><label style="width: 200px">Kategori</label></td>
-              <input type="text" class="form-control" name="nama_kategori" placeholder="Nama Kategori" value="<?=$data[nama_kategori]?>"/>
+              <td><label style="width: 200px">Jenis Barang</label></td>
+              <input type="text" class="form-control" name="nama_kategori" placeholder="Nama Jenis Barang" value="<?=$data[nama_kategori]?>"/>
+            </tr>
+          </div>
+          <br>
+          <div class="form-group" style="margin-bottom: 30px">
+            <tr>
+              <td><label style="width: 200px">Penyusutan (Bulan)</label></td>
+              <input type="text" class="form-control" name="penyusutan" placeholder="Penyusutan Harga " value="<?=$data[penyusutan]?>"/>
             </tr>
           </div>
           <div style="padding-bottom: 30px">

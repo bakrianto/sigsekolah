@@ -1,7 +1,7 @@
 <?php
   include_once("koneksi.php");
 if(!empty($_GET['id_inventaris'])){
-  $base_url = "http://localhost/sig_sekolah/";
+  $base_url = "http://http://192.168.8.105/sig_sekolah/";
   $q="SELECT * FROM `tb_inventaris` WHERE id_inventaris='$_GET[id_inventaris]'";
   $data=mysqli_fetch_array(mysqli_query($conn, $q));
   $action="?pg=inventaris_edit";
@@ -18,12 +18,15 @@ if(!empty($_GET['id_inventaris'])){
 <div class="row">
   <div class="col-md-12">
     <div class="panel"><a class="btn btn-info" href="?pg=inventaris"><i class="fa fa-chevron-left fa-fw"></i> Kembali</a></div>
+      <div class="col-md-11 alert alert-warning">
+          <strong>Peringatan!</strong> Ukuran File Tidak Boleh Melebihi 2MB
+      </div>
       <form class="form" action="<?=$action?>" method="post" enctype="multipart/form-data">
           <div class="form-inline" style="padding-bottom: 10px">
           <div class="form-group">
           <tr>
-            <label style="width: 200px">Nama</label>
-            <input type="text" class="form-control" name="nama_inventaris" placeholder="Nama inventaris" value="<?=$data[nama_inventaris]?>" />
+            <label style="width: 200px">Kode Barang</label>
+            <input type="text" class="form-control" name="kd_barang" placeholder="Kode barang" value="<?=$data[kd_barang]?>" />
           </tr>
           </div>
           </div>
@@ -33,14 +36,24 @@ if(!empty($_GET['id_inventaris'])){
           <div class="form-inline" style="padding-bottom: 10px">
           <div class="form-group">
           <tr>
-            <label style="width: 200px">Kategori</label>
+            <label style="width: 200px">Kategori Barang</label>
             <select class="form-control" name="id_kategori">
-              <option value="<?php echo $row['id_kategori']; ?>">Pilih Kategori</option>   
-              <?php if (mysqli_num_rows($q)>0) { ?>
-                <?php while ($row=mysqli_fetch_array($q)) {?>
-                  <option value=" <?php echo $row['id_kategori']; ?> "><?php echo $row['nama_kategori']; ?></option>
-                <?php } ?>
-             <?php } ?>
+              <?php 
+                  if ($_GET['act']=="edit") {
+                      while ($kat = mysqli_fetch_assoc($q)) {
+                          if ($data['id_kategori'] == $kat['id_kategori']) {
+                              echo '<option value="'.$kat['id_kategori'].'" selected>'.$kat['nama_kategori'].'</option>';
+                          } else {
+                              echo '<option value="'.$kat['id_kategori'].'">'.$kat['nama_kategori'].'</option>';
+                          }
+                      }
+                  } else {
+                      echo "<option>Pilih Kategori</option>";
+                      while ($kat = mysqli_fetch_assoc($q)) {
+                          echo '<option value="'.$kat['id_kategori'].'">'.$kat['nama_kategori'].'</option>';
+                      }
+                  }
+              ?>   
             </select>
           </tr>
           </div>
@@ -53,7 +66,22 @@ if(!empty($_GET['id_inventaris'])){
           <tr>
             <label style="width: 200px">Ruang</label>
             <select class="form-control" name="id_ruang">
-              <option>Pilih Ruang</option>
+              <?php 
+                  if ($_GET['act']=="edit") {
+                      while ($rng = mysqli_fetch_assoc($r)) {
+                          if ($data['id_ruang'] == $rng['id_ruang']) {
+                              echo '<option value="'.$rng['id_ruang'].'" selected>'.$rng['nama_ruang'].'</option>';
+                          } else {
+                              echo '<option value="'.$rng['id_ruang'].'">'.$rng['nama_ruang'].'</option>';
+                          }
+                      }
+                  } else {
+                      echo "<option>Pilih ruang</option>";
+                      while ($rng = mysqli_fetch_assoc($r)) {
+                          echo '<option value="'.$rng['id_ruang'].'">'.$rng['nama_ruang'].'</option>';
+                      }
+                  }
+              ?> 
               <?php 
                 if (mysqli_num_rows($r)>0) {
                     while ($row = mysqli_fetch_assoc($r)) { ?>
@@ -66,51 +94,34 @@ if(!empty($_GET['id_inventaris'])){
           </div>
           </div>
           <div class="form-inline" style="padding-bottom: 10px">
-          <div class="form-group">
-          <tr>
-            <label style="width: 200px">Asal</label>
-            <div class="radio">
-            <input type="radio" name="asal" value="Hibah"/> Hibah <br>
-            <input type="radio" name="asal" value="Dana"/> Dana <br>
-            <input type="radio" name="asal" value="Bos"/> BOS <br>
-            <input type="radio" name="asal" value="Komite"/> Komite <br>
-            <input type="radio" name="asal" value="Yayasan"/> Yayasan <br>
-            <input type="radio" name="asal" value="APBN"/> APBN <br>
-            <input type="radio" name="asal" value="APBD"/> APBD <br>
+            <div class="form-group">
+            <tr>
+              <label style="width: 200px">Asal</label>
+              <div class="radio">
+              <input type="radio" name="asal" value="Hibah" <?php echo $asal = ($data[asal]=='Hibah') ? 'checked' : '' ; ?>/> Hibah <br>
+              <input type="radio" name="asal" value="Dana" <?php echo $asal = ($data[asal]=='Dana') ? 'checked' : '' ; ?>/> Dana <br>
+              <input type="radio" name="asal" value="Bos" <?php echo $asal = ($data[asal]=='Bos') ? 'checked' : '' ; ?>/> BOS <br>
+              <input type="radio" name="asal" value="Komite" <?php echo $asal = ($data[asal]=='Komite') ? 'checked' : '' ; ?>/> Komite <br>
+              <input type="radio" name="asal" value="Yayasan" <?php echo $asal = ($data[asal]=='Yayasan') ? 'checked' : '' ; ?>/> Yayasan <br>
+              <input type="radio" name="asal" value="APBN" <?php echo $asal = ($data[asal]=='APBN') ? 'checked' : '' ; ?>/> APBN <br>
+              <input type="radio" name="asal" value="APBD" <?php echo $asal = ($data[asal]=='APBD') ? 'checked' : '' ; ?>/> APBD <br>
 
+              </div>
+              
+            </tr>
             </div>
-            <!-- <select name="asal" class="form-control">
-             <option>Pilih Asal</option>
-             <optgroup label="Hibah">
-               <option>Hibah</option>
-             <optgroup label="Beli">
-               <option>Dana </option>
-               <option>BOS</option>
-               <option>Komite Sekolah</option>
-               <option>Yayasan</option>
-               <option>APBN</option>
-               <option>APBD</option>
-            </select> -->
-          </tr>
           </div>
-          </div>
-          <!-- <div class="form-inline" style="padding-bottom: 10px">
-          <div class="form-group">
-          <tr>
-            <label style="width: 200px">No. Inventaris</label>
-            <input type="text" class="form-control" name="nomor_inventaris" placeholder="Nomor inventaris" value="<?=$data[nomor_inventaris]?>" />
-          </tr>
-          </div>
-          </div> -->
+        
           </tr>
           <div class="form-inline" style="padding-bottom: 10px">
-          <div class="form-group">
-          <tr>
-            <label style="width: 200px">Tanggal dibeli</label>
-            <input type="date" class="form-control" name="tgl_pembelian" placeholder="Tanggal dibeli" value="<?=$data[tgl_pembelian]?>" />
-          </tr>
+            <div class="form-group">
+            <tr>
+              <label style="width: 200px">Tanggal dibeli</label>
+              <input type="date" class="form-control" name="tgl_pembelian" placeholder="Tanggal dibeli" value="<?=$data[tgl_pembelian]?>" />
+            </tr>
+            </div>
           </div>
-          </div>
+          
           <div class="form-inline" style="padding-bottom: 10px">
           <div class="form-group">
           <tr>
@@ -119,14 +130,52 @@ if(!empty($_GET['id_inventaris'])){
           </tr>
           </div>
           </div>
+          
           <div class="form-inline" style="padding-bottom: 10px">
           <div class="form-group">
-          <tr>
-            <label style="width: 200px">Nilai beli</label>
-            <input type="text" class="form-control" name="nilai_pembelian" placeholder="Nilai Beli" value="<?=$data[nilai_pembelian]?>" />
-          </tr>
+            <tr>
+              <label style="width: 200px">Harga Beli</label>
+              <input type="text" class="form-control" name="nilai_pembelian" placeholder="Nilai Beli" value="<?=$data[nilai_pembelian]?>" />
+            </tr>
+          </div>         
           </div>
+
+          <div class="form-inline" style="padding-bottom: 10px">
+          <div class="form-group">
+            <tr>
+              <label style="width: 200px">Jumlah Beli</label>
+              <input type="text" class="form-control" name="jumlah" placeholder="Jumlah Beli" value="<?=$data[jumlah]?>" />
+            </tr>
+          </div>         
           </div>
+
+          <div class="form-inline" style="padding-bottom: 10px">
+          <div class="form-group">
+            <tr>
+              <label style="width: 200px">Register</label>
+              <input type="text" class="form-control" name="register" placeholder="001 - 010" value="<?=$data[register]?>" />
+            </tr>
+          </div>         
+          </div>
+
+          <div class="form-inline" style="padding-bottom: 10px">
+          <div class="form-group">
+            <tr>
+              <label style="width: 200px">Bahan</label>
+              <input type="text" class="form-control" name="bahan" placeholder="Bahan" value="<?=$data[bahan]?>" />
+            </tr>
+          </div>         
+          </div>
+
+          <div class="form-inline" style="padding-bottom: 10px">
+          <div class="form-group">
+            <tr>
+              <label style="width: 200px">Satuan</label>
+              <input type="text" class="form-control" name="satuan" placeholder="PCS" value="<?=$data[satuan]?>" />
+            </tr>
+          </div>         
+          </div>
+         
           <div class="form-inline" style="padding-bottom: 10px">
           <div class="form-group">
           <tr>
@@ -135,56 +184,38 @@ if(!empty($_GET['id_inventaris'])){
           </tr>
           </div>
           </div>
+          
           <div class="form-inline" style="padding-bottom: 10px">
-          <div class="form-group">
-          <tr>
-            <label style="width: 200px">Nilai Saat Ini</label>
-            <input type="text" class="form-control" name="nilai_saat_ini" placeholder="Nilai Saat Ini" value="<?=$data[nilai_saat_ini]?>" />
-          </tr>
-          </div>
-          </div>
-          <div class="form-inline" style="padding-bottom: 10px">
-          <div class="form-group">
-          <tr>
-            <label style="width: 200px">Kondisi</label>
-            <div class="radio">
-                <input type="radio" name="kondisi" id="optionsRadios2" value="Kondisi 80-100%">
-                Baik <br>
-                <input type="radio" name="kondisi" id="optionsRadios2" value="Kerusakan 10-50%">
-                Rusak Ringan <br>
-                <input type="radio" name="kondisi" id="optionsRadios2" value="Kerusakan 50-90%">
-                Rusak Berat <br>
+            <div class="form-group">
+            <tr>
+              <label style="width: 200px">Kondisi</label>
+              <input type="text" class="form-control" name="kondisi" placeholder="Kondisi" value="<?=$data[kondisi]?>" />
+            </tr>
+            
             </div>
-
-            <!-- <select name="kondisi" class="form-control">
-              <option>Pilih Kondisi</option>
-              <option>Baik</option>
-              <option>Rusak Ringan</option>
-              <option>Rusak Berat</option>
-            </select> -->
-            <!-- <input type="text" class="form-control" name="kondisi" placeholder="Kondisi" value="<?=$data[kondisi]?>" /> -->
-          </tr>
           </div>
+          
+          <div class="form-inline" style="padding-bottom: 10px">
+            <div class="form-group">
+            <tr>
+              <label style="width: 200px">Keterangan</label>
+              <input type="text" class="form-control" name="ket" placeholder="Keterangan" value="<?=$data[ket]?>" />
+            </tr>
+            </div>
           </div>
+          
           <div class="form-inline" style="padding-bottom: 10px">
           <div class="form-group">
           <tr>
             <label style="width: 200px">Foto</label>
-            <input type="file" class="form-control" name="foto">
+            <input type="file" class="form-control" name="foto" ><!-- <?php echo $req = ($_GET['act']!='edit') ? 'required' : '' ; ?> -->
             <div style="margin-left: 205px; padding-top: 10px;">
-              <span><img style="width:150px" src="<?=$base_url."/images/barang/".$data[pict]?>"></span>
+              <span><img style="width:150px" src="images/barang/<?= $data[pict]?>"></span>
             </div>
           </tr>
           </div>
           </div>
-          <div class="form-inline" style="padding-bottom: 10px">
-          <div class="form-group">
-          <tr>
-            <label style="width: 200px">Keterangan</label>
-            <input type="text" class="form-control" name="ket" placeholder="Keterangan" value="<?=$data[ket]?>" />
-          </tr>
-          </div>
-          </div>
+          
           <div class="form-inline" style="padding-bottom: 10px">
           <div class="form-group">
           <tr>
